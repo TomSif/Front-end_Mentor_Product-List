@@ -1,0 +1,58 @@
+@import url('https://fonts.googleapis.com/css2?family=Red+Hat+Text:wght@400;600;700&display=swap');
+@import "tailwindcss";
+
+@theme {
+  /* ── Colors ── */
+  --color-red:      #C73B0F;
+
+  --color-rose-900: #260F08;
+  --color-rose-500: #87635A;
+  --color-rose-400: #AD8A85;
+  --color-rose-300: #CAAFA7;
+  --color-rose-100: #F5EEEC;
+  --color-rose-50:  #FCF8F6;
+
+  --color-green:    #1EA575;
+
+  /* ── Font family ── */
+  --font-sans: 'Red Hat Text', sans-serif;
+
+  /* ── Font sizes (presets) ── */
+  --text-preset-1:               2.5rem;
+  --text-preset-1--line-height:  1.2;
+  --text-preset-1--font-weight:  700;
+
+  --text-preset-2:               1.5rem;
+  --text-preset-2--line-height:  1.25;
+  --text-preset-2--font-weight:  700;
+
+  --text-preset-3:               1rem;
+  --text-preset-3--line-height:  1.5;
+  --text-preset-3--font-weight:  600;
+
+  --text-preset-4:               0.875rem;
+  --text-preset-4--line-height:  1.5;
+  --text-preset-4--font-weight:  400;
+
+  --text-preset-4-bold:              0.875rem;
+  --text-preset-4-bold--line-height: 1.5;
+  --text-preset-4-bold--font-weight: 600;
+
+  /* ── Spacing ── */
+  --spacing-50:   4px;
+  --spacing-100:  8px;
+  --spacing-150:  12px;
+  --spacing-200:  16px;
+  --spacing-300:  24px;
+  --spacing-400:  32px;
+  --spacing-500:  40px;
+  --spacing-1100: 88px;
+}
+
+@layer base {
+  body {
+    font-family: var(--font-sans);
+    background-color: var(--color-rose-50);
+    color: var(--color-rose-900);
+  }
+}
