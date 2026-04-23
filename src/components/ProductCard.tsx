@@ -1,5 +1,5 @@
 import { Product } from "../types/index.ts";
-import formatPrice from "../utils/formatPrice";
+import formatPrice from "../utils/formatPrice.ts";
 
 interface ProductCardProps {
   product: Product;
@@ -12,16 +12,20 @@ function ProductCard({ product }: ProductCardProps) {
       <section className="flex flex-col items-center">
         <picture>
           <source
-            srcSet={product.image.desktop}
+            srcSet={product.image.mobile}
             type="image/jpeg"
-            media="(min-width: 1280px)"
+            media="(max-width: 375px)"
           />
           <source
             srcSet={product.image.tablet}
             type="image/jpeg"
-            media="(min-width: 768px)"
+            media="(max-width: 768px)"
           />
-          <img src={product.image.mobile} alt={product.name} />
+          <img
+            src={product.image.desktop}
+            alt={product.name}
+            className="rounded-2xl"
+          />
         </picture>
         <button className="flex items-center justify-center gap-2 text-preset-4-bold text-rose-900">
           <span>
@@ -30,7 +34,7 @@ function ProductCard({ product }: ProductCardProps) {
           Add to Cart
         </button>
       </section>
-      <section>
+      <section className="flex flex-col items-start text-left">
         <h2 className="text-preset-4 text-rose-500">{product.category}</h2>
         <h3 className="text-preset-3 text-rose-900">{product.name}</h3>
         <p className="text-preset-3 text-red">
