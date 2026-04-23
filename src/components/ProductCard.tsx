@@ -3,9 +3,17 @@ import formatPrice from "../utils/formatPrice.ts";
 
 interface ProductCardProps {
   product: Product;
+  quantity: number;
+  onIncrement: (name: string) => void;
+  onDecrement: (name: string) => void;
 }
 
-function ProductCard({ product }: ProductCardProps) {
+function ProductCard({
+  product,
+  quantity,
+  onDecrement,
+  onIncrement,
+}: ProductCardProps) {
   const priceFormated = formatPrice(product.price);
   return (
     <article className="flex flex-col gap-4">
