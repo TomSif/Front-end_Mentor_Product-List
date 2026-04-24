@@ -1,16 +1,17 @@
 import ProductCard from "./ProductCard";
-import data from "../data/data.json" with { type: "json" };
 import { Product } from "../types/index.ts";
 
 interface ProductListProps {
   quantities: Record<string, number>;
   onIncrement: (name: string) => void;
   onDecrement: (name: string) => void;
+  data: Product[];
 }
 const ProductList = ({
   quantities,
   onIncrement,
   onDecrement,
+  data,
 }: ProductListProps) => {
   return (
     <main className="flex flex-col p-6 gap-8 w-full">
