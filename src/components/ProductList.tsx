@@ -21,7 +21,7 @@ const ProductList = ({
             <li key={product.name}>
               <ProductCard
                 product={product}
-                quantity={quantities[product.name]}
+                quantity={quantities[product.name] ?? 0}
                 onIncrement={onIncrement}
                 onDecrement={onDecrement}
               />
