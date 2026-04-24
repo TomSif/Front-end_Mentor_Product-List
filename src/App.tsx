@@ -1,5 +1,7 @@
 import { useState } from "react";
+import data from "./data/data.json" with { type: "json" };
 import ProductList from "./components/ProductList";
+import Cart from "./components/Cart";
 
 function App() {
   const [quantities, setQuantities] = useState<Record<string, number>>({});
@@ -10,13 +12,22 @@ function App() {
       ...prev,
       [name]: Math.max(0, (prev[name] ?? 0) - 1),
     }));
+
+  const cartItems = data
+    .filter((product) => quantities[product.name] >= 1)
+    .map((product) => ({ ...product, quantity: quantities[product.name] }));
+
+  const removeItemFromCart = (name: string) =>
+    setQuantities((prev) => ({ ...prev, [name]: 0 }));
   return (
-    <div className="min-h-screen bg-rose-50 max-w-304 ">
+    <div className="min-h-screen bg-rose-50 max-w-304 flex flex-col md:flex-row">
       <ProductList
+        data={data}
         quantities={quantities}
         onIncrement={onIncrement}
         onDecrement={onDecrement}
       />
+      <Cart cartItems={cartItems} removeItemFromCart={removeItemFromCart} />
     </div>
   );
 }
