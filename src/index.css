@@ -61,4 +61,15 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  width: 100dvw;
+}
+@media (min-width: 768px) {
+  .root {
+    padding: 2.5rem;
+  }
+}
+@media (min-width: 1024px) {
+  .root {
+    padding: 5.5rem 7rem 5.5rem 7rem;
+  }
 }

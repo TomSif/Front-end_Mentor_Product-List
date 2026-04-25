@@ -22,7 +22,7 @@ function ProductCard({
           <source
             srcSet={product.image.mobile}
             type="image/jpeg"
-            media="(max-width: 375px)"
+            media="(max-width: 767px)"
           />
           <source
             srcSet={product.image.tablet}

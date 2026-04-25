@@ -11,7 +11,7 @@ const Cart = ({ cartItems, removeItemFromCart }: CartProps) => {
     0,
   );
   return (
-    <section className="bg-white w-full flex flex-col p-6 gap-6 rounded-2xl h-auto">
+    <section className="bg-white w-full flex flex-col p-6 gap-6 rounded-2xl h-auto xl:max-w-96">
       <h5 className="text-preset-2 text-red">
         Your Cart
         <span>({cartItems.length}) </span>

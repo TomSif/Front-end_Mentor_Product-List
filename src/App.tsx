@@ -5,8 +5,10 @@ import Cart from "./components/Cart";
 
 function App() {
   const [quantities, setQuantities] = useState<Record<string, number>>({});
+
   const onIncrement = (name: string) =>
     setQuantities((prev) => ({ ...prev, [name]: (prev[name] ?? 0) + 1 }));
+
   const onDecrement = (name: string) =>
     setQuantities((prev) => ({
       ...prev,
@@ -19,8 +21,9 @@ function App() {
 
   const removeItemFromCart = (name: string) =>
     setQuantities((prev) => ({ ...prev, [name]: 0 }));
+
   return (
-    <div className="min-h-screen bg-rose-50 max-w-304 flex flex-col md:flex-row">
+    <div className="bg-rose-50 max-w-304 flex flex-col xl:flex-row xl:items-start gap-8">
       <ProductList
         data={data}
         quantities={quantities}
