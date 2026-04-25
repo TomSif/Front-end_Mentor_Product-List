@@ -1,10 +1,12 @@
 import { useState } from "react";
 import data from "./data/data.json" with { type: "json" };
 import ProductList from "./components/ProductList";
+import ConfirmationModal from "./components/ConfirmationModal";
 import Cart from "./components/Cart";
 
 function App() {
   const [quantities, setQuantities] = useState<Record<string, number>>({});
+  const [isOpen, setIsOpen] = useState<boolean>(false);
 
   const onIncrement = (name: string) =>
     setQuantities((prev) => ({ ...prev, [name]: (prev[name] ?? 0) + 1 }));
@@ -22,16 +24,39 @@ function App() {
   const removeItemFromCart = (name: string) =>
     setQuantities((prev) => ({ ...prev, [name]: 0 }));
 
+  const onStartNewOrder = () => {
+    setQuantities({});
+  };
+
+  const isCartEmpty = cartItems.length === 0;
+
+  function onClose() {
+    return setIsOpen(false);
+  }
+
   return (
-    <div className="bg-rose-50 max-w-304 flex flex-col xl:flex-row xl:items-start gap-8">
-      <ProductList
-        data={data}
-        quantities={quantities}
-        onIncrement={onIncrement}
-        onDecrement={onDecrement}
+    <>
+      <ConfirmationModal
+        isOpen={isOpen}
+        onClose={onClose}
+        cartItems={cartItems}
+        onStartNewOrder={onStartNewOrder}
       />
-      <Cart cartItems={cartItems} removeItemFromCart={removeItemFromCart} />
-    </div>
+      <main className="bg-rose-50 max-w-304 flex flex-col xl:flex-row xl:items-start gap-8">
+        <ProductList
+          data={data}
+          quantities={quantities}
+          onIncrement={onIncrement}
+          onDecrement={onDecrement}
+        />
+        <Cart
+          cartItems={cartItems}
+          removeItemFromCart={removeItemFromCart}
+          setIsOpen={setIsOpen}
+          isCartEmpty={isCartEmpty}
+        />
+      </main>
+    </>
   );
 }
 
