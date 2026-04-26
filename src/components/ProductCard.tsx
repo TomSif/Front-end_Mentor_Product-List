@@ -15,10 +15,13 @@ function ProductCard({
   onIncrement,
 }: ProductCardProps) {
   const priceFormated = formatPrice(product.price);
+  const isBordered = quantity > 0;
   return (
     <article className="flex flex-col gap-4">
       <section className="flex flex-col items-center">
-        <picture>
+        <picture
+          className={`border-2 rounded-2xl ${isBordered ? " border-red " : "border-transparent"}`}
+        >
           <source
             srcSet={product.image.mobile}
             type="image/jpeg"
