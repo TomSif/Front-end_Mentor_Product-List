@@ -25,6 +25,9 @@ const Cart = ({
           <h2 className="text-preset-2 text-red">
             Your Cart
             <span aria-live="polite"> ({cartItems.length}) </span>
+            <span aria-live="polite" className="sr-only">
+              {cartItems.length}
+            </span>
           </h2>
           <div className="py-4 flex flex-col items-center gap-4">
             <div className="w-32 h-32">
