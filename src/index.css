@@ -63,12 +63,14 @@
 .img-btn img {
   transition: filter 0.2s ease;
 }
-.img-btn:hover,
-.img-btn:focus {
+.img-btn:focus-visible {
+  outline: 2px solid var(--color-rose-900);
+  background-color: white;
+}
+.img-btn:hover {
   transform: scale(1.05) translateY(-0.5px);
   box-shadow: 0 2px 4px rgba(122, 26, 26, 0.2);
   background-color: white;
-  outline: 3px solid rgba(0, 0, 0, 0.12);
 }
 .img-btn:active {
   transform: scale(0.98) translateY(0.5px);
@@ -109,12 +111,14 @@
 }
 
 /* hover overlay */
-.big-btn:hover::after {
+.big-btn:hover::after,
+.big-btn:focus-visible::after {
   opacity: 0.18;
 }
 
 /* effet bouton */
-.big-btn:hover {
+.big-btn:hover,
+.big-btn:focus-visible {
   transform: translateY(-2px);
   box-shadow: 0 5px 9px rgba(0, 0, 0, 0.12);
 }
