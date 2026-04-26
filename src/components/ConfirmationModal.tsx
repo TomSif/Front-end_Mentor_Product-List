@@ -39,6 +39,7 @@ const ConfirmationModal = ({
   return (
     <dialog
       ref={dialogRef}
+      aria-labelledby="orderConfirmed"
       className="backdrop:bg-black/50  max-w-148 bg-white w-full my-auto mx-auto md:rounded-2xl p-10 min-h-screen xl:min-h-auto"
     >
       <div className="flex flex-col w-full gap-8 ">
@@ -46,7 +47,9 @@ const ConfirmationModal = ({
           <div>
             <img src="/assets/images/icon-order-confirmed.svg" alt="" />
           </div>
-          <h1 className="text-preset-1 text-rose-900 ">Order Confirmed</h1>
+          <h1 id="orderConfirmed" className="text-preset-1 text-rose-900 ">
+            Order Confirmed
+          </h1>
           <p className="text-rose-500 text-preset-3">
             We hope you enjoy your food!
           </p>
