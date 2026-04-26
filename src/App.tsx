@@ -1,5 +1,5 @@
 import { useState } from "react";
-import data from "./data/data.json" with { type: "json" };
+import data from "./data/data.json";
 import ProductList from "./components/ProductList";
 import ConfirmationModal from "./components/ConfirmationModal";
 import Cart from "./components/Cart";
