@@ -47,9 +47,9 @@ const ConfirmationModal = ({
           <div>
             <img src="/assets/images/icon-order-confirmed.svg" alt="" />
           </div>
-          <h1 id="orderConfirmed" className="text-preset-1 text-rose-900 ">
+          <h2 id="orderConfirmed" className="text-preset-1 text-rose-900 ">
             Order Confirmed
-          </h1>
+          </h2>
           <p className="text-rose-500 text-preset-3">
             We hope you enjoy your food!
           </p>
@@ -72,9 +72,9 @@ const ConfirmationModal = ({
                       />
                     </div>
                     <div className="flex flex-col w-full gap-2">
-                      <h6 className="text-preset-4-bold text-rose-900">
+                      <p className="text-preset-4-bold text-rose-900">
                         {item.name}
-                      </h6>
+                      </p>
                       <div className="flex justify-between items-center">
                         <p className="flex gap-2">
                           <span className="text-red text-preset-4-bold">
