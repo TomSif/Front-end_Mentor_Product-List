@@ -18,7 +18,7 @@ function ProductCard({
   const isBordered = quantity > 0;
   return (
     <article className="flex flex-col gap-4">
-      <section className="flex flex-col items-center">
+      <figure className="flex flex-col items-center">
         <picture
           className={`border-2 rounded-2xl ${isBordered ? " border-red " : "border-transparent"}`}
         >
@@ -92,14 +92,12 @@ function ProductCard({
             </button>
           </div>
         )}
-      </section>
+      </figure>
       <section className="flex flex-col items-start text-left">
         <h2 className="text-preset-4 text-rose-500">{product.category}</h2>
         <h3 className="text-preset-3 text-rose-900">{product.name}</h3>
         <p className="text-preset-3 text-red">
-          <data itemProp="price" value={product.price}>
-            {priceFormated}
-          </data>
+          <data value={product.price}>{priceFormated}</data>
         </p>
       </section>
     </article>
