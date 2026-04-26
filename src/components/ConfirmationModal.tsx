@@ -45,6 +45,7 @@ const ConfirmationModal = ({
       <div className="flex flex-col w-full gap-8 ">
         <header className="flex flex-col relative ">
           <button
+            type="button"
             aria-label="close the modal"
             onClick={() => onClose()}
             className="absolute top-2 right-4 border border-rose-400 rounded-full w-4.5 h-4.5 flex items-center justify-center hover:cursor-pointer hover:border-rose-900 img-btn"
