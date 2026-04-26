@@ -9,7 +9,7 @@
 [![Tailwind](https://img.shields.io/badge/tailwindcss_v4-0F172A?&logo=tailwindcss&logocolor=white)](https://tailwindcss.com/)
 [![TypeScript](https://img.shields.io/badge/typescript-3178C6?style=for-the-badge&logo=typescript&logoColor=white)](https://www.typescriptlang.org/)
 
-![Design preview for the Product List with Cart coding challenge](/screenshot.png)
+![Design preview for the Product List with Cart coding challenge](./screenshot.png)
 
 ### 🌐 Live Demo:
 
@@ -49,7 +49,7 @@ Users should be able to:
 
 ### Screenshot
 
-![](/screenshot-modal.png)
+![](./screenshot-modal.png)
 
 ### Links
 
