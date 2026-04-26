@@ -38,6 +38,7 @@ const ConfirmationModal = ({
 
   return (
     <dialog
+      aria-modal="true"
       ref={dialogRef}
       aria-labelledby="orderConfirmed"
       className="backdrop:bg-black/50  max-w-148 bg-white w-full my-auto mx-auto md:rounded-2xl p-10 min-h-screen xl:min-h-auto"
