@@ -1,24 +1,44 @@
-# Frontend Mentor - Product list with cart
+# Product List with Cart - Thomas Sifferle 🛒
 
-![Design preview for the Product list with cart coding challenge](./preview.jpg)
+![forthebadge](https://forthebadge.com/api/badges/generate?primaryLabel=USES&secondaryLabel=HTML)
+![forthebadge](https://forthebadge.com/api/badges/generate?primaryLabel=USES&secondaryLabel=CSS)
+![forthebadge](https://forthebadge.com/api/badges/generate?primaryLabel=USES&secondaryLabel=JS)
+[![forthebadge](https://forthebadge.com/api/badges/generate?primaryLabel=USES&secondaryLabel=GIT)](https://github.com/TomSif)
+[![React](https://img.shields.io/badge/react_19-20232a?style=for-the-badge&logo=react&logocolor=61dafb)](https://reactjs.org/)
+[![Vite](https://img.shields.io/badge/vite-646cff?style=for-the-badge&logo=vite&logocolor=white)](https://vitejs.dev/)
+[![Tailwind](https://img.shields.io/badge/tailwindcss_v4-0F172A?&logo=tailwindcss&logocolor=white)](https://tailwindcss.com/)
+[![TypeScript](https://img.shields.io/badge/typescript-3178C6?style=for-the-badge&logo=typescript&logoColor=white)](https://www.typescriptlang.org/)
 
-## Welcome! 👋
+![Design preview for the Product List with Cart coding challenge](/screenshot.png)
 
-Thanks for checking out this front-end coding challenge.
+### 🌐 Live Demo:
 
-[Frontend Mentor](https://www.frontendmentor.io) challenges help you improve your coding skills by building realistic projects.
+**[View live site →](https://front-end-mentor-product-list.vercel.app/)**
 
-**To do this challenge, you need a good understanding of HTML, CSS and JavaScript.**
+Deployed on Vercel with HTTPS and performance optimizations.
 
-## The challenge
+---
 
-Your challenge is to build out this product list project that includes a functional cart and get it looking as close to the design as possible.
+This is a solution to the [Product List with Cart challenge on Frontend Mentor](https://www.frontendmentor.io/challenges/product-list-with-cart-5MmqLVAp_d). Frontend Mentor challenges help you improve your coding skills by building realistic projects.
 
-You can use any tools you like to help you complete the challenge. So, if you have something you'd like to practice, feel free to give it a go.
+## Table of contents
 
-We provide the data for the products in a local `data.json` file. So you can use that to populate the UI dynamically if you choose.
+- [Overview](#overview)
+  - [The challenge](#the-challenge)
+  - [Screenshot](#screenshot)
+  - [Links](#links)
+- [My process](#my-process)
+  - [Built with](#built-with)
+  - [What I learned](#what-i-learned)
+  - [Continued development](#continued-development)
+- [Author](#author)
+- [Acknowledgments](#acknowledgments)
 
-Your users should be able to: 
+## Overview
+
+### The challenge
+
+Users should be able to:
 
 - Add items to the cart and remove them
 - Increase/decrease the number of items in the cart
@@ -27,87 +47,181 @@ Your users should be able to:
 - View the optimal layout for the interface depending on their device's screen size
 - See hover and focus states for all interactive elements on the page
 
-### Want some support on the challenge? 
+### Screenshot
 
-[Join our community](https://www.frontendmentor.io/community) and ask questions in the **#help** channel.
+![](/screenshot-modal.png)
 
-## Where to find everything
+### Links
 
-Your task is to build out the project to the designs inside the `/design` folder. You will find both a mobile and a desktop version of the design. 
+- Solution URL: [GitHub Repository](https://github.com/TomSif/Front-end_Mentor_Product-List/tree/main)
+- Live Site URL: [Vercel Deployment](https://front-end-mentor-product-list.vercel.app/)
 
-The designs are in JPG static format. Using JPGs will mean that you'll need to use your best judgment for styles such as `font-size`, `padding` and `margin`. 
+## My process
 
-If you would like the Figma design file to gain experience using professional tools and build more accurate projects faster, you can [subscribe as a PRO member](https://www.frontendmentor.io/pro).
+### Built with
 
-All the required assets for this project are in the `/assets` folder. The images are already exported for the correct screen size and optimized.
+- Semantic HTML5 markup
+- CSS custom properties
+- Mobile-first workflow
+- [React 19](https://react.dev/) - JS library
+- [TypeScript](https://www.typescriptlang.org/)
+- [Vite](https://vitejs.dev/) - Build tool
+- [Tailwind CSS v4](https://tailwindcss.com/) - Utility-first CSS (`@import "tailwindcss"`, `@theme` variables, `@utility` presets)
+- [clsx](https://github.com/lukeed/clsx) + [tailwind-merge](https://github.com/dcastil/tailwind-merge) — `cn()` utility for conditional classNames
 
-We also include variable and static font files for the required fonts for this project. You can choose to either link to Google Fonts or use the local font files to host the fonts yourself. Note that we've removed the static font files for the font weights that aren't needed for this project.
+### What I learned
 
-There is also a `style-guide.md` file containing the information you'll need, such as color palette and fonts.
+#### Data-first TypeScript — deriving interfaces from `data.json`
 
-## Using AI coding assistants
+As in the previous project, I derived all TypeScript interfaces directly from the shape of the actual JSON rather than imagining the architecture upfront. `data.json` has 9 products with a nested image structure (mobile, desktop, thumbnail), so the interfaces followed naturally:
 
-We've included two files to help you if you're using AI coding assistants (like Claude, GitHub Copilot, Cursor, etc.) while working on this challenge:
+```ts
+interface ProductImage {
+  thumbnail: string;
+  mobile: string;
+  desktop: string;
+}
 
-- `AGENTS.md` - Contains detailed instructions for AI assistants on how to help you with this challenge. It's tailored to this challenge's difficulty level, so the AI will provide guidance appropriate to your learning stage—offering more support for beginner challenges and encouraging more independence on advanced ones.
-- `CLAUDE.md` - A pointer file that directs Claude-based tools to the AGENTS.md instructions.
+interface Product {
+  image: ProductImage;
+  name: string;
+  category: string;
+  price: number;
+}
+```
 
-**How to use them:** You don't need to do anything! These files are automatically detected by most AI coding tools. The AI will read them and adjust its behavior to be a better learning partner—guiding you toward solutions rather than just giving you the answers.
+`CartItem` was built autonomously in the same session — `name`, `price`, `quantity` — derived directly from what the cart needed to display, not from an upfront design decision.
 
-**Note:** These files are designed to help you *learn*, not to do the work for you. The AI is instructed to ask questions, give hints, and explain concepts rather than writing complete solutions.
+#### `Record<string, number>` for quantities state
 
-## Building your project
+The cart quantity state lives in a single `Record` object in `App`, keyed by product name (used as identifier since `data.json` has no `id` field):
 
-Feel free to use any workflow that you feel comfortable with. Below is a suggested process, but do not feel like you need to follow these steps:
+```ts
+const [quantities, setQuantities] = useState<Record<string, number>>({});
+```
 
-1. Initialize your project as a public repository on [GitHub](https://github.com/). Creating a repo will make it easier to share your code with the community if you need help. If you're not sure how to do this, [have a read-through of this Try Git resource](https://try.github.io/).
-2. Configure your repository to publish your code to a web address. This will also be useful if you need some help during a challenge as you can share the URL for your project with your repo URL. There are a number of ways to do this, and we provide some recommendations below.
-3. Look through the designs to start planning out how you'll tackle the project. This step is crucial to help you think ahead for CSS classes to create reusable styles.
-4. Before adding any styles, structure your content with HTML. Writing your HTML first can help focus your attention on creating well-structured content.
-5. Write out the base styles for your project, including general content styles, such as `font-family` and `font-size`.
-6. Start adding styles to the top of the page and work down. Only move on to the next section once you're happy you've completed the area you're working on.
+Incrementing and decrementing use computed property names to update a single key immutably, with `Math.max` to prevent going below zero:
 
-## Deploying your project
+```ts
+const handleIncrement = (name: string) => {
+  setQuantities((prev) => ({ ...prev, [name]: (prev[name] ?? 0) + 1 }));
+};
 
-As mentioned above, there are many ways to host your project for free. Our recommended hosts are:
+const handleDecrement = (name: string) => {
+  setQuantities((prev) => ({
+    ...prev,
+    [name]: Math.max(0, (prev[name] ?? 0) - 1),
+  }));
+};
+```
 
-- [GitHub Pages](https://pages.github.com/)
-- [Vercel](https://vercel.com/)
-- [Netlify](https://www.netlify.com/)
+Two patterns became concrete here: the `??` operator (null/undefined only, not falsy — distinct from `||`), and computed property names (`[name]: value`) for dynamic object key updates.
 
-You can host your site using one of these solutions or any of our other trusted providers. [Read more about our recommended and trusted hosts](https://www.frontendmentor.io/guides/hosting-your-solution).
+#### Deriving `cartItems` — `.filter().map()` and closures
 
-## Create a custom `README.md`
+The cart content is never a separate piece of state — it's derived from `quantities` and `data` at every render via a `.filter().map()` chain in `App`:
 
-We strongly recommend overwriting this `README.md` with a custom one. We've provided a template inside the [`README-template.md`](./README-template.md) file in this starter code.
+```ts
+const cartItems: CartItem[] = data
+  .filter((product) => (quantities[product.name] ?? 0) >= 1)
+  .map((product) => ({
+    name: product.name,
+    price: product.price,
+    quantity: quantities[product.name],
+  }));
+```
 
-The template provides a guide for what to add. A custom `README` will help you explain your project and reflect on your learnings. Please feel free to edit our template as much as you like.
+The main friction here was understanding how `quantities` is accessible inside the `.filter()` callback — it's in the parent scope and captured as a closure. Working through this with concrete values (not abstract explanations) was what made it click.
 
-Once you've added your information to the template, delete this file and rename the `README-template.md` file to `README.md`. That will make it show up as your repository's README file.
+The cart total is computed with `.reduce()`:
 
-## Submitting your solution
+```ts
+const total = cartItems.reduce(
+  (acc, item) => acc + item.price * item.quantity,
+  0,
+);
+```
 
-Submit your solution on the platform for the rest of the community to see. Follow our ["Complete guide to submitting solutions"](https://www.frontendmentor.io/guides/how-to-submit-solutions) for tips on how to do this.
+#### Callback types in interfaces — `onXxx: (param: Type) => void`
 
-Remember, if you're looking for feedback on your solution, be sure to ask questions when submitting it. The more specific and detailed you are with your questions, the higher the chance you'll get valuable feedback from the community.
+Each interactive component receives its handlers as typed props. `ProductCard` is a representative example:
 
-## Sharing your solution
+```ts
+interface ProductCardProps {
+  product: Product;
+  quantity: number;
+  onIncrement: (name: string) => void;
+  onDecrement: (name: string) => void;
+  onAddToCart: (name: string) => void;
+}
+```
 
-There are multiple places you can share your solution:
+The syntax for function types in interfaces (`(param: Type) => void`) was a documented fragility from previous projects. This challenge provided multiple real occasions to write it — `onAddToCart`, `onIncrement`, `onDecrement`, `onRemove` — which is what it needed to start anchoring.
 
-1. Share your solution page in the **#finished-projects** channel of our [community](https://www.frontendmentor.io/community). 
-2. Share on [X (formerly Twitter)](https://x.com/frontendmentor) and mention **@frontendmentor**, including the repo and live URLs in your post. We'd love to take a look at what you've built and help share it around.
-3. Share your solution on [LinkedIn](https://www.linkedin.com/company/frontend-mentor/).
-4. Blog about your experience building your project. Writing about your workflow, technical choices, and talking through your code is a brilliant way to reinforce what you've learned. Great platforms to write on are [dev.to](https://dev.to/), [Hashnode](https://hashnode.com/), and [CodeNewbie](https://community.codenewbie.org/).
+#### Native `<dialog>` and `useRef` + `useEffect`
 
-We provide templates to help you share your solution once you've submitted it on the platform. Please do edit them and include specific questions when you're looking for feedback. 
+The confirmation modal uses the native HTML `<dialog>` element rather than a JSX conditional or a custom overlay. This gives accessibility for free — focus trap, Escape key handling — without any extra code. The React ↔ DOM synchronisation requires two separate effects:
 
-The more specific you are with your questions the more likely it is that another member of the community will give you feedback.
+```ts
+const dialogRef = useRef<HTMLDialogElement>(null);
 
-## Got feedback for us?
+// Effect 1: sync open/close with React state
+useEffect(() => {
+  if (isOpen) {
+    dialogRef.current?.showModal();
+  } else {
+    dialogRef.current?.close();
+  }
+}, [isOpen]);
 
-We love receiving feedback! We're always looking to improve our challenges and our platform. So if you have anything you'd like to mention, please email hi[at]frontendmentor[dot]io.
+// Effect 2: listen for native close event (Escape key)
+useEffect(() => {
+  const dialog = dialogRef.current;
+  const handleClose = () => onClose();
+  dialog?.addEventListener("close", handleClose);
+  return () => dialog?.removeEventListener("close", handleClose);
+}, [onClose]);
+```
 
-This challenge is completely free. Please share it with anyone who will find it useful for practice.
+The two-effect split was the key insight: mixing the `showModal`/`close` logic with the event listener cleanup in a single effect creates ordering problems. Separating concerns between effects is the correct approach — and was not intuitive at first.
 
-**Have fun building!** 🚀
+#### Conditional Tailwind class via derived boolean
+
+When a product is in the cart (`quantity > 0`), its `<picture>` element gets a red border. Rather than writing the condition inline in the className, a local boolean makes the intent explicit:
+
+```tsx
+const isBordered = quantity > 0;
+
+<picture className={cn("rounded-lg overflow-hidden", isBordered && "ring-2 ring-red")}>
+```
+
+This keeps the JSX readable and the boolean naming self-documenting — a pattern cleaner than a ternary directly in the class string.
+
+#### Conventional Commits — `feat` vs `style`
+
+A recurring ambiguity clarified on this project: `style` in Conventional Commits means code formatting (whitespace, semicolons), not CSS or visual changes. Hover states, border additions, layout adjustments — these are `feat` commits because they change observable behaviour.
+
+The atomic commit discipline continued: four commits across the responsive + accessibility + animation session, each scoped to a single concern (`feat(responsive)`, `feat(css)`, `feat(a11y)`, `fix(config)`).
+
+### Continued development
+
+- **Callback types in interfaces** — `(param: Type) => void` is understood but still requires conscious effort. It needs to become as automatic as `string` or `number`.
+- **Computed property names** — `{ ...obj, [key]: value }` is used correctly now, but the mental model (brackets = evaluate as key) still needs more repetition before it's truly a reflex.
+- **Closures** — understanding how a parent-scope variable is captured in a nested callback still requires reasoning explicitly. The abstraction needs to become more automatic.
+- **Multiple `useEffect`** — knowing when to split concerns across two separate effects (rather than combining them) is understood conceptually, but the instinct isn't there yet.
+- **`.reduce()` syntax** — usable after seeing an example, but not yet reconstructible from scratch without a reference.
+
+## Author
+
+- Frontend Mentor - [@TomSif](https://www.frontendmentor.io/profile/TomSif)
+- GitHub - [@TomSif](https://github.com/TomSif)
+
+## Acknowledgments
+
+This project was built with AI-assisted mentoring (Claude). The approach: I code by hand, Claude acts as a Socratic mentor — asking questions, explaining concepts, reviewing my reasoning. Architectural decisions (what to build, how to structure state, when to split a component) stayed mine.
+
+Specific AI contributions are documented transparently in my [progression log](./progression.md):
+
+- **Written by Claude:** project scaffold (`chore/setup` commits), TypeScript syntax when blocked on generics
+- **My initiative:** `CartItem` interface built autonomously, `cartItems` derivation logic, `removeItemFromCart` implementation, architectural decision to keep cart as derived state (no separate `useState`)
+- **Collaborative:** debugging the closure in `.filter().map()`, working through `??` vs `||`, two-effect split in `ConfirmationModal`, code review and commit scoping
