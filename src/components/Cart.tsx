@@ -41,10 +41,10 @@ const Cart = ({
         </section>
       ) : (
         <section className="bg-white w-full flex flex-col p-6 gap-6 rounded-2xl h-auto xl:max-w-96">
-          <h5 className="text-preset-2 text-red">
+          <h4 aria-live="polite" className="text-preset-2 text-red">
             Your Cart
-            <span>({cartItems.length}) </span>
-          </h5>
+            <span> ({cartItems.length}) </span>
+          </h4>
           <ul className="flex flex-col ">
             {cartItems.map((item) => {
               const itemTotal = item.quantity * item.price;
@@ -53,9 +53,9 @@ const Cart = ({
                   className="flex flex-col py-4 border-b border-b-rose-100 "
                   key={item.name}
                 >
-                  <h6 className="text-preset-4-bold text-rose-900">
+                  <h5 className="text-preset-4-bold text-rose-900">
                     {item.name}
-                  </h6>
+                  </h5>
                   <div className="flex justify-between items-center">
                     <p className="flex gap-2">
                       <span className="text-red text-preset-4-bold">
