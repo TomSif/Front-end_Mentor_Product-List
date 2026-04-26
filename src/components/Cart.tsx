@@ -22,9 +22,9 @@ const Cart = ({
     <>
       {isCartEmpty ? (
         <section className="bg-white w-full flex flex-col p-6 gap-6 rounded-2xl h-auto xl:max-w-96">
-          <h4 aria-live="polite" className="text-preset-2 text-red">
+          <h4 className="text-preset-2 text-red">
             Your Cart
-            <span> ({cartItems.length}) </span>
+            <span aria-live="polite"> ({cartItems.length}) </span>
           </h4>
           <div className="py-4 flex flex-col items-center gap-4">
             <div className="w-32 h-32">
@@ -41,9 +41,9 @@ const Cart = ({
         </section>
       ) : (
         <section className="bg-white w-full flex flex-col p-6 gap-6 rounded-2xl h-auto xl:max-w-96">
-          <h4 aria-live="polite" className="text-preset-2 text-red">
+          <h4 className="text-preset-2 text-red">
             Your Cart
-            <span> ({cartItems.length}) </span>
+            <span aria-live="polite"> ({cartItems.length}) </span>
           </h4>
           <ul className="flex flex-col ">
             {cartItems.map((item) => {
