@@ -101,10 +101,10 @@ const ConfirmationModal = ({
             onStartNewOrder();
             onClose();
           }}
-          className="bg-red text-white text-preset-3 flex items-center justify-center p-4 rounded-full"
+          className="bg-red text-white text-preset-3 flex items-center justify-center p-4 rounded-full big-btn"
           type="button"
         >
-          Start New Order
+          <span>Start New Order</span>
         </button>
       </div>
     </dialog>

@@ -70,7 +70,7 @@ const Cart = ({
                     </p>
 
                     <button
-                      className="border-2 border-rose-400 rounded-full w-4.5 h-4.5 flex items-center justify-center"
+                      className="border border-rose-400 rounded-full w-4.5 h-4.5 flex items-center justify-center hover:cursor-pointer hover:border-rose-900 img-btn"
                       onClick={() => removeItemFromCart(item.name)}
                       type="button"
                       aria-label={`Remove ${item.name} from cart`}
@@ -102,10 +102,10 @@ const Cart = ({
             onClick={() => {
               setIsOpen(true);
             }}
-            className="bg-red text-white text-preset-3 flex items-center justify-center p-4 rounded-full"
+            className="bg-red text-white text-preset-3 flex items-center justify-center p-4 rounded-full big-btn"
             type="button"
           >
-            Confirm Order
+            <span>Confirm Order</span>
           </button>
         </section>
       )}

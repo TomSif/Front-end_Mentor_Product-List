@@ -62,6 +62,72 @@
   align-items: center;
   justify-content: center;
   width: 100dvw;
+  padding: 1.5rem;
+}
+/* buttons - + & x */
+.img-btn,
+.img-btn img {
+  transition: all ease-in 0.2s;
+}
+.img-btn:hover,
+.img-btn:focus {
+  transform: scale(1.05) translateY(-0.5px);
+  box-shadow: 0 2px 4px rgba(122, 26, 26, 0.2);
+  background-color: white;
+  outline: none;
+}
+.img-btn:active {
+  transform: scale(0.98) translateY(0.5px);
+  box-shadow: 0 2px 4px rgba(122, 26, 26, 0.603);
+  background-color: white;
+}
+.img-btn:hover img,
+.img-btn:active img,
+.img-btn:focus img {
+  filter: invert(0.7) sepia(1) saturate(95) hue-rotate(45deg);
+}
+/* Confirm Order Btn & Start New Order Btn */
+.big-btn {
+  position: relative;
+  overflow: hidden;
+  transition:
+    transform 0.15s ease,
+    box-shadow 0.15s ease;
+  z-index: 0;
+}
+
+/* contenu au-dessus */
+.big-btn > * {
+  position: relative;
+  z-index: 2;
+}
+
+/* overlay */
+.big-btn::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-color: black;
+  opacity: 0;
+  transition: opacity 0.15s ease;
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* hover overlay */
+.big-btn:hover::after {
+  opacity: 0.18;
+}
+
+/* effet bouton */
+.big-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 9px rgba(0, 0, 0, 0.12);
+}
+
+.big-btn:active {
+  transform: translateY(3px);
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2);
 }
 @media (min-width: 768px) {
   .root {
