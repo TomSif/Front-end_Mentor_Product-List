@@ -39,9 +39,9 @@ const ConfirmationModal = ({
   return (
     <dialog
       ref={dialogRef}
-      className="backdrop:bg-black/50  max-w-148 bg-white w-full my-auto mx-auto rounded-2xl p-10"
+      className="backdrop:bg-black/50  max-w-148 bg-white w-full my-auto mx-auto md:rounded-2xl p-10 min-h-screen xl:min-h-auto"
     >
-      <div className="flex flex-col w-full gap-8">
+      <div className="flex flex-col w-full gap-8 ">
         <header className="flex flex-col">
           <div>
             <img src="/assets/images/icon-order-confirmed.svg" alt="" />
