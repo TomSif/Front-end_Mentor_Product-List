@@ -36,16 +36,6 @@
   --text-preset-4-bold: 0.875rem;
   --text-preset-4-bold--line-height: 1.5;
   --text-preset-4-bold--font-weight: 600;
-
-  /* ── Spacing ── */
-  --spacing-50: 4px;
-  --spacing-100: 8px;
-  --spacing-150: 12px;
-  --spacing-200: 16px;
-  --spacing-300: 24px;
-  --spacing-400: 32px;
-  --spacing-500: 40px;
-  --spacing-1100: 88px;
 }
 
 @layer base {
@@ -133,12 +123,12 @@
   transform: translateY(3px);
   box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2);
 }
-@media (min-width: 768px) {
+@media (min-width: 48rem) {
   .root {
     padding: 2.5rem;
   }
 }
-@media (min-width: 1024px) {
+@media (min-width: 64rem) {
   .root {
     padding: 5.5rem 7rem 5.5rem 7rem;
   }
