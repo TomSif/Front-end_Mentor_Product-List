@@ -61,20 +61,24 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 100dvw;
+  width: 100%;
   padding: 1.5rem;
 }
 /* buttons - + & x */
 .img-btn,
 .img-btn img {
-  transition: all ease-in 0.2s;
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease,
+    filter 0.2s ease,
+    background-color 0.2s ease-in-out;
 }
 .img-btn:hover,
 .img-btn:focus {
   transform: scale(1.05) translateY(-0.5px);
   box-shadow: 0 2px 4px rgba(122, 26, 26, 0.2);
   background-color: white;
-  outline: none;
+  outline: 3px solid rgba(0, 0, 0, 0.12);
 }
 .img-btn:active {
   transform: scale(0.98) translateY(0.5px);
