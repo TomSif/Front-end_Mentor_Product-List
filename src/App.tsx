@@ -36,12 +36,6 @@ function App() {
 
   return (
     <>
-      <ConfirmationModal
-        isOpen={isOpen}
-        onClose={onClose}
-        cartItems={cartItems}
-        onStartNewOrder={onStartNewOrder}
-      />
       <main className="bg-rose-50 max-w-304 flex flex-col xl:flex-row xl:items-start gap-8">
         <ProductList
           data={data}
@@ -56,6 +50,12 @@ function App() {
           isCartEmpty={isCartEmpty}
         />
       </main>
+      <ConfirmationModal
+        isOpen={isOpen}
+        onClose={onClose}
+        cartItems={cartItems}
+        onStartNewOrder={onStartNewOrder}
+      />
     </>
   );
 }
