@@ -22,7 +22,7 @@ const Cart = ({
     <>
       {isCartEmpty ? (
         <section className="bg-white w-full flex flex-col p-6 gap-6 rounded-2xl h-auto xl:max-w-96">
-          <h4 className="text-preset-2 text-red">
+          <h4 aria-live="polite" className="text-preset-2 text-red">
             Your Cart
             <span> ({cartItems.length}) </span>
           </h4>
