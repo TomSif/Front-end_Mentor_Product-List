@@ -43,7 +43,14 @@ const ConfirmationModal = ({
       className="backdrop:bg-black/50  max-w-148 bg-white w-full my-auto mx-auto md:rounded-2xl p-10 min-h-screen xl:min-h-auto"
     >
       <div className="flex flex-col w-full gap-8 ">
-        <header className="flex flex-col">
+        <header className="flex flex-col relative ">
+          <button
+            aria-label="close the modal"
+            onClick={() => onClose()}
+            className="absolute top-2 right-4 border border-rose-400 rounded-full w-4.5 h-4.5 flex items-center justify-center hover:cursor-pointer hover:border-rose-900 img-btn"
+          >
+            <img src="/assets/images/icon-remove-item.svg" alt="" />
+          </button>
           <div>
             <img src="/assets/images/icon-order-confirmed.svg" alt="" />
           </div>
