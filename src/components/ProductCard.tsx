@@ -95,7 +95,7 @@ function ProductCard({
       )}
       <section className="flex flex-col items-start text-left mr-auto">
         <p className="text-preset-4 text-rose-500">{product.category}</p>
-        <h2 className="text-preset-3 text-rose-900">{product.name}</h2>
+        <h3 className="text-preset-3 text-rose-900">{product.name}</h3>
         <p className="text-preset-3 text-red">
           <data value={product.price}>{priceFormated}</data>
         </p>
