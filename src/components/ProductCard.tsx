@@ -30,7 +30,7 @@ function ProductCard({
           <source
             srcSet={product.image.tablet}
             type="image/jpeg"
-            media="(max-width: 768px)"
+            media="(max-width: 1023px)"
           />
           <img
             src={product.image.desktop}
