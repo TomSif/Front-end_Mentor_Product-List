@@ -44,7 +44,7 @@ function ProductCard({
               onIncrement(product.name);
             }}
             type="button"
-            aria-label="Add to cart "
+            aria-label={`Add ${product.name} to cart `}
             className="flex items-center justify-center gap-2 text-preset-4-bold text-rose-900 bg-white rounded-full border border-rose-400 w-40 py-3 -mt-6  hover:border-red hover:text-red hover:cursor-pointer  "
           >
             <span>
